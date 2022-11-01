@@ -36,7 +36,16 @@ $(document).ready(function(){
             var qtd = $(".qtd").val();
             $.post("inc/idade.php",{qtd:qtd},function(data)
             {
-                $(".idade").html(data);
+                $("#idadeBeneficiarios").html(data);
+                $('.idade').keypress(function(event)
+                {
+                let pattern = /[^0-9]/;
+                if(pattern.test(String.fromCharCode(event.keyCode)))
+                {
+                    alert("Caracter inválido");
+                    event.preventDefault();
+                }
+                });
             });
             $.post("inc/nome.php",{qtd:qtd},function(data)
             {

@@ -40,7 +40,7 @@
                                         <input type="button" name="next" class="next action-button rounded" value="Próximo"/>
                                     </fieldset>
                                     <fieldset>
-                                        <div class="form-card rounded idade">
+                                        <div class="form-card rounded" id="idadeBeneficiarios">
                                             
                                         </div>
                                         <input type="button" name="previous" class="previous action-button-previous" value="Anterior"/>
