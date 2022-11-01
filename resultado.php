@@ -38,6 +38,7 @@
     $fx_valores = $precos[$valores];
     $i=0;
     $total=0;
+    $beneficiarios[] = array("codigo"=>$idplano);
     foreach($idade as $indice=>$valor)
     {
         if($valor<=17)
@@ -59,7 +60,7 @@
             }
         }
     }
-    $beneficiarios[count($beneficiarios)] = array("total"=>$total);
+    $beneficiarios[] = array("total"=>$total);
     $js_beneficiarios = json_encode($beneficiarios,JSON_FORCE_OBJECT | JSON_NUMERIC_CHECK | JSON_UNESCAPED_UNICODE); 
     file_put_contents("inc/proposta.json",$js_beneficiarios);
 ?>
@@ -103,6 +104,8 @@
                                             }
                                             else
                                             {
+                                                if($indice==(count($beneficiarios)-1))
+                                                {
                                         ?>
                                     </tbody>
                                     <tfooter>
@@ -112,6 +115,7 @@
                                         </tr>
                                     </tfooter>
                                         <?php
+                                                }
                                             }
                                         }
                                         ?>
